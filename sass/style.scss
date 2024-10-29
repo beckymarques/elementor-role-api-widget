@@ -1,0 +1,45 @@
+.widget-wrapper {
+  .department-wrapper {
+    display: block;
+    .department-title {
+      font-weight: bold;
+    }
+    .department-group {
+      --width: 50%;
+      --gap-rows: 2em;
+      --gap-columns: 2em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--gap-rows) var(--gap-columns);
+      margin-right: calc(-1 * var(--gap-columns));
+      flex-grow: 1;
+      @media screen and (max-width: 767px) {
+        & {
+          --gap-rows: 1em;
+          --gap-columns: 0em;
+          gap: var(--gap-rows) var(--gap-columns);
+        }
+        & > * {
+          --width: 100%;
+        }
+      }
+      & > * {
+        width: calc(var(--width) - var(--gap-columns));
+      }
+      .card-link {
+        padding: 2em;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 7px;
+        color: #222;
+        cursor: pointer;
+        &:hover {
+          box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+        }
+        .card-title,
+        .card-label {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
